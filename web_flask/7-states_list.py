@@ -9,9 +9,13 @@ app = Flask(__name__)
 """ Flask app module"""
 
 
-@app.teardown_appcontext
-def closure():
+def close_storage(exception=None):
     storage.close()
+
+
+@app.teardown_appcontext
+def teardown_appcontext(exception=None):
+    close_storage(exception)
 
 
 @app.route("/states_list", strict_slashes=False)
