@@ -21,7 +21,7 @@ def teardown_appcontext(exception=None):
 @app.route("/states_list", strict_slashes=False)
 def state_list():
     """ Route that prints hello """
-    states = storage.all("State")
+    states = storage.all("State").values()
     return render_template('7-states_list.html', states=states)
 
 
