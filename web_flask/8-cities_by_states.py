@@ -1,0 +1,35 @@
+#!/usr/bin/python3
+"""First flask app"""
+from flask import Flask, render_template
+from models import storage
+from models.state import State
+from models.engine.file_storage import FileStorage
+from models.engine.db_storage import DBStorage
+
+
+app = Flask(__name__)
+""" Flask app module"""
+
+
+@app.route("/states_list", strict_slashes=False)
+def state_city_list():
+    """ Route that prints hello """
+    if type(storage) != DBStorage:
+        states = storage.all("State").values()
+        city_by_state = {}
+        for state in states:
+            cities = state.cities
+            state_name = state.name
+        for city in cities:
+            city_by_state[state_name].append(city)
+    return render_template('7-states_list.html', states=states)
+
+
+@app.teardown_appcontext
+def close_storage(self):
+    storage.close()
+
+
+if __name__ == '__main__':
+    """ sa per siguri """
+    app.run(host='0.0.0.0', port=5000)
