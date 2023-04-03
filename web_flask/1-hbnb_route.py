@@ -15,7 +15,7 @@ def first_route():
 @app.route("/hbnb", strict_slashes=False)
 def second_route():
     """ Route that prints hello """
-    return "Hello!"
+    return "HBNB"
 
 
 if __name__ == '__main__':
