@@ -17,7 +17,7 @@ def closure():
 @app.route("/states_list", strict_slashes=False)
 def state_list():
     """ Route that prints hello """
-    states = storage.all(State)
+    states = storage.all("State")
     return render_template('states_list.html', states=states)
 
 
