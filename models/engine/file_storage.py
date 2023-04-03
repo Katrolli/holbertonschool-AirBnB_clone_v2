@@ -58,3 +58,7 @@ class FileStorage:
                 if value == obj:
                     del storage[key]
                     break
+
+    def close(self):
+        """Close the session from filestorage"""
+        self.reload()
