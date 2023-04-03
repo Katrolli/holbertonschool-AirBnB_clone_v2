@@ -3,6 +3,7 @@ from flask import Flask
 """First flask app"""
 
 app = Flask(__name__)
+""" Flask app module"""
 
 
 @app.route("/", strict_slashes=False)
