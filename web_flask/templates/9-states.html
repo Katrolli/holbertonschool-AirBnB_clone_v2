@@ -10,13 +10,17 @@
                 <li>{{ state.id }}: <b>{{ state.name }}</b></li>
             {% endfor %}
         {% else %}
-            <h1>State: {{ state }}</h1>
-            <h3>Cities:</h3>
-            <ul>
-                {% for city in state.cities | sort(attribute="name") %}
-                    <li>{{ city.id }}: <b>{{ city.name }}</b></li>
-                {% endfor %}
-            </ul>
+            {% if state is None %}
+                <h1>Not found!</h1>
+            {% else %}
+                <h1>State: {{ stat.name }}</h1>
+                <h3>Cities:</h3>
+                <ul>
+                    {% for city in state.cities | sort(attribute="name") %}
+                        <li>{{ city.id }}: <b>{{ city.name }}</b></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
         {% endif %}
 
     </body>
