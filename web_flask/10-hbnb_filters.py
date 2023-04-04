@@ -11,7 +11,7 @@ app = Flask(__name__)
 """ Flask app module"""
 
 
-@app.route("/hbnb_filters", strict_slashes=False)
+@app.route("/", strict_slashes=False)
 def hbnb_filters():
     """ Route that prints hello """
     return render_template('10-hbnb_filters.html')
