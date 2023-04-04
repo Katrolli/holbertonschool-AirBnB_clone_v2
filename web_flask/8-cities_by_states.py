@@ -18,7 +18,8 @@ def state_city_list():
     states = storage.all("State").values()
     for state in states:
         cities_by_state[state.name] = state.cities
-    return render_template('8-cities_by_states.html', states=states, cities=cities_by_state)
+    return render_template('8-cities_by_states.html',
+                           states=states, cities=cities_by_state)
 
 
 @app.teardown_appcontext
