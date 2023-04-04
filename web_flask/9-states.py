@@ -21,13 +21,14 @@ def state_list():
 @app.route("/states/<id>", strict_slashes=False)
 def state_city_list(id):
     """ Route that prints hello """
-    state = None
     states = storage.all("State").values()
     for element in states:
         if element.id == id:
             state = element
-    return render_template('9-states.html',
-                           state=states)
+    if state:
+        return render_template('9-states.html',
+                               state=states)
+    return render_template('9-states.html')
 
 
 @app.teardown_appcontext
