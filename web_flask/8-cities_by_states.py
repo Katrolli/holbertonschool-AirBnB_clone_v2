@@ -14,8 +14,11 @@ app = Flask(__name__)
 @app.route("/cities_by_states", strict_slashes=False)
 def state_city_list():
     """ Route that prints hello """
+    cities_by_state = {}
     states = storage.all("State").values()
-    return render_template('8-cities_by_states.html', states=states)
+    for state in states:
+        cities_by_state[state.name] = state.cities
+    return render_template('8-cities_by_states.html', states=states, cities=cities_by_state)
 
 
 @app.teardown_appcontext
