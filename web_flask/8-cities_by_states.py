@@ -16,12 +16,6 @@ def state_city_list():
     """ Route that prints hello """
     if type(storage) != DBStorage:
         states = storage.all("State").values()
-        city_by_state = {}
-        for state in states:
-            cities = state.cities
-            state_name = state.name
-        for city in cities:
-            city_by_state[state_name].append(city)
     return render_template('7-states_list.html', states=states)
 
 
