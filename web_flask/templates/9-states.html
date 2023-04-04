@@ -9,8 +9,8 @@
             <ul>
             {% for state in states|sort(attribute="name") %}
                 <li>{{ state.id }}: <b>{{ state.name }}</b></li>
-            </ul>
             {% endfor %}
+            </ul>
         {% else %}
             {% if state is none %}
                 <h1>Not found!</h1>
