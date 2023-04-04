@@ -6,4 +6,4 @@ from models.engine.db_storage import DBStorage
 cities_by_state = {}
 states = storage.all("State").values()
 for state in states:
-    print(state)
+    print(state.cities)

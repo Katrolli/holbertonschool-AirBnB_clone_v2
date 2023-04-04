@@ -20,8 +20,12 @@ class State(BaseModel, Base):
     if os.getenv('HBNB_TYPE_STORAGE') != 'db':
         @property
         def cities(self):
+            print('here')
             new_ls = []
-            for city in models.storage.all(City).values():
-                if self.id == city.state_id:
-                    new_ls.append(city)
+            print(models.storage.all("City"))
+            print(models.storage.all())
+
+            # for city in models.storage.all().values():
+            #     if self.id == city.state_id:
+            #         new_ls.append(city)
             return new_ls
