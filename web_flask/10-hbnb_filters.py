@@ -14,8 +14,7 @@ app = Flask(__name__)
 @app.route("/hbnb_filters", strict_slashes=False)
 def hbnb_filters():
     """ Route that prints hello """
-    states = storage.all("State").values()
-    return render_template('10-hbnb_filters.html', states=states)
+    return render_template('10-hbnb_filters.html')
 
 
 @ app.teardown_appcontext
