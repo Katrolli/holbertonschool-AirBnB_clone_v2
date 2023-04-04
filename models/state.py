@@ -20,7 +20,6 @@ class State(BaseModel, Base):
     if os.getenv('HBNB_TYPE_STORAGE') != 'db':
         @property
         def cities(self):
-            print('here')
             new_ls = []
             for city in models.storage.all("City").values():
                 if self.id == city.state_id:
