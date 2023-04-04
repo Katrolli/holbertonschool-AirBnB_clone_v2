@@ -10,7 +10,7 @@
                 <li>{{ state.id }}: <b>{{ state.name }}</b></li>
             {% endfor %}
         {% else %}
-            {% if state is None %}
+            {% if state is none %}
                 <h1>Not found!</h1>
             {% else %}
                 <h1>State: {{ stat.name }}</h1>
