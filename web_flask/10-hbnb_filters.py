@@ -11,10 +11,13 @@ app = Flask(__name__)
 """ Flask app module"""
 
 
-@app.route("/", strict_slashes=False)
+@app.route("/hbnb_filters", strict_slashes=False)
 def hbnb_filters():
     """ Route that prints hello """
-    return render_template('10-hbnb_filters.html')
+    states = storage.all('State').values()
+    amenitites = storage.all('Amenity').values()
+
+    return render_template('10-hbnb_filters.html', states=states, amenitites=amenitites)
 
 
 @ app.teardown_appcontext
